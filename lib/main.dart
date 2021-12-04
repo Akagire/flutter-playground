@@ -1,18 +1,28 @@
 import 'package:flutter/material.dart';
-import './mixed_state_component_demo.dart';
+import './theme/app_theme.dart';
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    // return const LayoutApp();
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Memorize Color',
+      theme: AppTheme().lightTheme,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Flutter Demo'),
+          title: const Text('Colors'),
+          // backgroundColor: Colors.grey,
         ),
         body: const Center(
-          child: ParentWidget(),
+          child: Text('wip')
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: const Icon(Icons.add, color: Colors.black54),
         ),
       ),
     );
