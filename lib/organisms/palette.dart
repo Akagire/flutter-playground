@@ -24,9 +24,10 @@ class _PaletteState extends State<Palette> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 4, bottom: 0, left: 4, right: 4),
+      padding: const EdgeInsets.only(top: 16, bottom: 8, left: 32, right: 32),
+      // TODO: タイトルの表示方法の検討
       child: Container(
-        height: 100,
+        height: 80,
         child: Card(
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(16))),
