@@ -111,7 +111,7 @@ class MyApp extends StatelessWidget {
           title: const Text('Flutter Demo'),
         ),
         body: const Center(
-          child: TapboxA(),
+          child: ParentWidget(),
         ),
       ),
     );
