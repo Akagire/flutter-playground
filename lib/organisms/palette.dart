@@ -1,24 +1,5 @@
 import 'package:flutter/material.dart';
-
-class Catalog extends StatefulWidget {
-  final bool selected;
-  final Color color;
-
-  const Catalog({Key? key, this.selected = false, required this.color})
-      : super(key: key);
-
-  @override
-  State<Catalog> createState() => _CatalogState();
-}
-
-class _CatalogState extends State<Catalog> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: widget.color,
-    );
-  }
-}
+import 'package:tutorial/atoms/color_catalog.dart';
 
 class Palette extends StatefulWidget {
   final String title;
@@ -49,7 +30,7 @@ class _PaletteState extends State<Palette> {
               _selectedIndex = index;
             });
           },
-          child: Catalog(color: value),
+          child: ColorCatalog(color: value),
         ),
       ));
     });

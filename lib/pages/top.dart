@@ -49,8 +49,9 @@ class TopPage extends StatelessWidget {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  // （2） 実際に表示するページ(ウィジェット)を指定する
-                  builder: (context) => NewPage()));
+                builder: (context) => NewPage(),
+                fullscreenDialog: true,
+              ));
         },
         child: const Icon(Icons.add, color: Colors.black54),
       ),
