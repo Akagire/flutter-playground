@@ -5,9 +5,12 @@ class NewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add your color'),
+        title: const Text('Add your color'),
+        iconTheme: const IconThemeData(
+          color: Colors.black54,
+        ),
       ),
-      body: Center(
+      body: const Center(
         child: Text('WIP'),
       ),
     );
