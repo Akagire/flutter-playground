@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './theme/app_theme.dart';
+import './organisms/palette.dart';
 
 class MyApp extends StatefulWidget {
   @override
@@ -7,6 +8,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final colors = [
+    const Color(0xffffffff),
+    const Color(0xffbc002d),
+    const Color(0xffdfe3e2),
+    const Color(0xff7b807a),
+    const Color(0xff130f0c),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,8 +26,12 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Colors'),
           // backgroundColor: Colors.grey,
         ),
-        body: const Center(
-          child: Text('wip')
+        body: ListView(
+          children: [
+            Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+              Palette(title: 'Sample', colors: colors),
+            ]),
+          ],
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
