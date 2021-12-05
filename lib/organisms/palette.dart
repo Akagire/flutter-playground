@@ -1,5 +1,23 @@
 import 'package:flutter/material.dart';
 
+class Catalogue extends StatefulWidget {
+  final bool selected;
+  final Color color;
+
+  const Catalogue({Key? key, this.selected = false, required this.color})
+      : super(key: key);
+
+  @override
+  State<Catalogue> createState() => _CatalogueState();
+}
+
+class _CatalogueState extends State<Catalogue> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(color: widget.color);
+  }
+}
+
 class Palette extends StatefulWidget {
   final String title;
   final List<Color> colors;
@@ -15,10 +33,26 @@ class Palette extends StatefulWidget {
 }
 
 class _PaletteState extends State<Palette> {
+  int _selectedIndex = 3;
+
   List<Widget> _paletteBuilder(List<Color> colors) {
-    return colors.map((c) => Expanded(
-        child: Container(color: c))
-    ).toList();
+    final List<Widget> builtColors = [];
+
+    widget.colors.asMap().forEach((index, value) {
+      builtColors.add(Expanded(
+        flex: index == _selectedIndex ? 2 : 1,
+        child: GestureDetector(
+          onTap: () {
+            setState(() {
+              _selectedIndex = index;
+            });
+          },
+          child: Catalogue(color: value),
+        ),
+      ));
+    });
+
+    return builtColors;
   }
 
   @override

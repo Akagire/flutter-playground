@@ -18,13 +18,13 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    int _selectedIndex = 0;
     return MaterialApp(
       title: 'Memorize Color',
       theme: AppTheme().lightTheme,
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Colors'),
-          // backgroundColor: Colors.grey,
         ),
         body: ListView(
           children: [
@@ -35,11 +35,7 @@ class _MyAppState extends State<MyApp> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            showDialog(context: context, builder: (context) {
-              return const AlertDialog(
-                title: Text('Wip'),
-              );
-            });
+            print('wip');
           },
           child: const Icon(Icons.add, color: Colors.black54),
         ),
