@@ -22,15 +22,16 @@ class _PaletteState extends State<Palette> {
     final List<Widget> builtColors = [];
 
     widget.colors.asMap().forEach((index, value) {
+      final isSelected = index == _selectedIndex;
       builtColors.add(Expanded(
-        flex: index == _selectedIndex ? 2 : 1,
+        flex: isSelected ? 2 : 1,
         child: GestureDetector(
           onTap: () {
             setState(() {
               _selectedIndex = index;
             });
           },
-          child: ColorCatalog(color: value),
+          child: ColorCatalog(color: value, selected: isSelected),
         ),
       ));
     });
