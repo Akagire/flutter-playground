@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 
-class Catalogue extends StatefulWidget {
+class Catalog extends StatefulWidget {
   final bool selected;
   final Color color;
 
-  const Catalogue({Key? key, this.selected = false, required this.color})
+  const Catalog({Key? key, this.selected = false, required this.color})
       : super(key: key);
 
   @override
-  State<Catalogue> createState() => _CatalogueState();
+  State<Catalog> createState() => _CatalogState();
 }
 
-class _CatalogueState extends State<Catalogue> {
+class _CatalogState extends State<Catalog> {
   @override
   Widget build(BuildContext context) {
-    return Container(color: widget.color);
+    return Container(
+      color: widget.color,
+    );
   }
 }
 
@@ -33,7 +35,7 @@ class Palette extends StatefulWidget {
 }
 
 class _PaletteState extends State<Palette> {
-  int _selectedIndex = 3;
+  int _selectedIndex = -1;
 
   List<Widget> _paletteBuilder(List<Color> colors) {
     final List<Widget> builtColors = [];
@@ -47,7 +49,7 @@ class _PaletteState extends State<Palette> {
               _selectedIndex = index;
             });
           },
-          child: Catalogue(color: value),
+          child: Catalog(color: value),
         ),
       ));
     });
