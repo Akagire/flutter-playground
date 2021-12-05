@@ -34,9 +34,16 @@ class _MyAppState extends State<MyApp> {
           ],
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            showDialog(context: context, builder: (context) {
+              return const AlertDialog(
+                title: Text('Wip'),
+              );
+            });
+          },
           child: const Icon(Icons.add, color: Colors.black54),
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       ),
     );
   }
