@@ -1,6 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+class AnimatedLogo extends AnimatedWidget {
+  const AnimatedLogo({Key? key, required Animation<double> animation})
+      : super(key: key, listenable: animation);
+
+  @override
+  Widget build(BuildContext context) {
+    final animation = listenable as Animation<double>;
+    return Center(
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 10),
+        height: animation.value,
+        width: animation.value,
+        child: const FlutterLogo(),
+      ),
+    );
+  }
+}
+
 class LogoApp extends StatefulWidget {
   const LogoApp({Key? key}) : super(key: key);
 
@@ -17,26 +35,12 @@ class _LogoAppState extends State<LogoApp> with SingleTickerProviderStateMixin {
     super.initState();
     controller =
         AnimationController(duration: const Duration(seconds: 1), vsync: this);
-    animation = Tween<double>(begin: 0, end: 100).animate(controller);
-    animation.addListener(() {
-      setState(() {
-        // animationオブジェクトの値が変化した場合
-      });
-    });
+    animation = Tween<double>(begin: 0, end: 300).animate(controller);
     controller.forward();
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 10),
-        height: animation.value,
-        width: animation.value,
-        child: const FlutterLogo(),
-      ),
-    );
-  }
+  Widget build(BuildContext context) => AnimatedLogo(animation: animation);
 
   @override
   void dispose() {
