@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tutorial/logo.dart';
 import './mixed_state_component_demo.dart';
 
 class MyApp extends StatelessWidget {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
           title: const Text('Flutter Demo'),
         ),
         body: const Center(
-          child: ParentWidget(),
+          child: LogoApp(),
         ),
       ),
     );
